@@ -21,10 +21,10 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
 
     - name: Build the Docker image
-    env:
-    REGISTRY: 313422618945.dkr.ecr.eu-central-1.amazonaws.com
-    REPOSITORY: anita-nextjs-app
-    IMAGE_TAG: ${{github.sha}}
+      env:
+        REGISTRY: 313422618945.dkr.ecr.eu-central-1.amazonaws.com
+        REPOSITORY: anita-nextjs-app
+        IMAGE_TAG: ${{github.sha}}
       run: |
        docker build . --file Dockerfile --tag $REGISTRY/$REPOSITORY:$IMAGE_TAG
        docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
