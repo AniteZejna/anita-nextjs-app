@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: build
 
 on:
   push:
@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag anita-nextjs-app:latest 313422618945.dkr.ecr.eu-central-1.amazonaws.com/anita-nextjs-app:$(date +%s)
