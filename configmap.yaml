@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-demo-configmap
+data:
+  DATABASE_HOST: "database-host"
+  DATABASE_NAME: "database-name"
+  DATABASE_USERNAME: "database-username"

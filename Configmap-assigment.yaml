@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ngnix-nsdemo
+data:  
+  DB_HOSTNAME: "db.hostname"
+  

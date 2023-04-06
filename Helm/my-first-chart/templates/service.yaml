@@ -1,16 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "my-fisrt-chart.fullname" . }}
-  namespace:  {{ .Values.namespace }}
+  namespace: {{ .Values.namespace }}
   labels:
-    {{- include "my-fisrt-chart.labels" . | nindent 4 }}
+    app: {{ .Values.service }}
+  name: {{ .Values.appName }}-service
 spec:
-  type: {{ .Values.service.type }}
+  type: ClusterIP #Default
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
+  - port: {{ .Values.servicePort }}
+    protocol: TCP
+    targetPort: {{ .Values.containerPort }}
   selector:
-    {{- include "my-fisrt-chart.selectorLabels" . | nindent 4 }}
+    app: {{ .Values.app }}

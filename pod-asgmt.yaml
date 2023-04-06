@@ -1,0 +1,11 @@
+kind: Pod 
+apiVersion: v1 
+metadata:
+  name: nginx 
+spec:
+  containers:
+    - name: env-var-configmap
+      image: nginx:1.16.1 
+      envFrom:
+        - configMapRef:
+            name: ngnix-nsdemo
